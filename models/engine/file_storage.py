@@ -41,7 +41,7 @@ class FileStorage():
         """
         serializes __objects to the JSON file (path: __file_path)
         """
-        with open(FileStorage.__file_path, 'w') as f:
+        with open(FileStorage.__file_path, 'w',encoding="utf-8") as f:
             json.dump(
                 {k: v.to_dict() for k, v in FileStorage.__objects.items()}, f)
 
@@ -57,7 +57,7 @@ class FileStorage():
         if not os.path.exists(FileStorage.__file_path):
             return
 
-        with open(FileStorage.__file_path, 'r') as f:
+        with open(FileStorage.__file_path, 'r',encoding="utf-8") as f:
             deserialized = None
 
             try:
