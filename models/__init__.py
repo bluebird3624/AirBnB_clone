@@ -1,8 +1,10 @@
 #!/usr/bin/python3
+
 """
-Module: __init__.py
+Initializes  the module global (singleton) variables
 """
-from models.engine.file_storage import FileStorage
+
+from .engine.file_storage import FileStorage
 
 storage = FileStorage()
 

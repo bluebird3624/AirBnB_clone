@@ -1,40 +1,30 @@
 #!/usr/bin/python3
-"""The `place` module
-
-It defines one class, `Place(),
-which sub-classes the `BaseModel()` class.`
 """
+Defines the Place model,
+that inherits from BaseModel
+"""
+
+
 from models.base_model import BaseModel
+from typing import List
 
 
 class Place(BaseModel):
-    """A place/house in the application.
-
-    It represents a place/house uploaded
-    by the users of the application.
-
-    Attributes:
-        name
-        user_id
-        city_id
-        description
-        number_bathrooms
-        price_by_night
-        number_rooms
-        longitude
-        latitude
-        max_guest
-        amenity_ids
+    """
+    Defines the Place model,
+    that inherits from BaseModel
     """
 
-    name = ""
-    user_id = ""
-    city_id = ""
-    description = ""
-    number_bathrooms = 0
-    price_by_night = 0
-    number_rooms = 0
-    longitude = 0.0
-    latitude = 0.0
-    max_guest = 0
-    amenity_ids = []
+    # Attributes
+    city_id: str = ''
+    user_id: str = ''
+    name: str = ''
+    description: str = ''
+    number_rooms:  int = 0
+    number_bathrooms: int = 0
+    max_guest: int = 0
+    price_by_night: int = 0
+    latitude: float = 0.0
+    longitude:  float = 0.0
+    amenity_ids:  List[str] = []
+    
