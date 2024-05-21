@@ -20,26 +20,26 @@ classes = storage.models
 
 
 class HBNBCommand(Cmd):
-    """ does various HBNB commands """
+    """ does various HBNB commands \n"""
     prompt = "(hbnb) "
 
     # Commands
     def do_EOF(self, args):
-        """Exits the programme in non-interactive mode"""
+        """Exits the programme in non-interactive mode\n"""
         return True
 
     def do_quit(self, args):
-        """Quits commands that closes the programme"""
+        """Quits commands that closes the programme \n"""
         return True
 
     def emptyline(self):
-        """Overides empty line to do nothing """
+        """Overides empty line to do nothing \n"""
         pass
 
     def do_create(self, args):
         """creates a new instance of a model name ex.
         $ create ModelName : Our case : BaseModel.
-        Prints an error if name is missing or name doesn't exist
+        Prints an error if name is missing or name doesn't exist\n
         """
         args, n = parse(args)
 
@@ -60,7 +60,7 @@ class HBNBCommand(Cmd):
         """Show an Instance of Model base on its ModelName and id eg.
         $ show MyModel instance_id
         Print error message if either MyModel or instance_id is missing
-        Print an Error message for wrong MyModel or instance_id"""
+        Print an Error message for wrong MyModel or instance_id\n"""
         args, n = parse(arg)
 
         if not n:
@@ -80,7 +80,7 @@ class HBNBCommand(Cmd):
             pass
 
     def do_destroy(self, arg):
-        """Deletes an Instance of Model base on its ModelName and id."""
+        """Deletes an Instance of Model base on its ModelName and id.\n"""
         args, n = parse(arg)
 
         if not n:
@@ -101,7 +101,7 @@ class HBNBCommand(Cmd):
     def do_all(self, args):
         """Usage: all or all <class> or <class>.all()
         Display string representations of all instances of a given class.
-        If no class is specified, displays all instantiated objects."""
+        If no class is specified, displays all instantiated objects.\n"""
         args, n = parse(args)
 
         if n < 2:
@@ -116,7 +116,7 @@ class HBNBCommand(Cmd):
     def do_update(self, arg):
         """Updates an instance base on its id eg
         $ update Model id field value
-        Throws errors for missing arguments"""
+        Throws errors for missing arguments\n"""
         args, n = parse(arg)
         if not n:
             print("** class name missing **")
@@ -135,7 +135,7 @@ class HBNBCommand(Cmd):
                 print("** no instance found **")
 
     def default(self, arg):
-        """Override default method to handle class methods"""
+        """Override default method to handle class methods \n"""
         if '.' in arg and arg[-1] == ')':
             if arg.split('.')[0] not in classes:
                 print("** class doesn't exist **")
@@ -144,12 +144,12 @@ class HBNBCommand(Cmd):
         return Cmd.default(self, arg)
 
     def do_models(self, arg):
-        """Print all registered Models"""
+        """Print all registered Models \n"""
         print(*classes)
 
     def handle_class_methods(self, arg):
         """Handle Class Methods
-        <cls>.all(), <cls>.show() etc
+        <cls>.all(), <cls>.show() etc\n
         """
 
         printable = ("all(", "show(", "count(", "create(")
@@ -174,7 +174,7 @@ class HBNBCommand(Cmd):
 
 
 def parse(line: str):
-    """Splits lines by spaces"""
+    """Splits lines by spaces \n"""
     args = shlex.split(line)
     return args, len(args)
 
